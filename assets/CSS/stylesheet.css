@@ -1,6 +1,6 @@
 *::before, *::after {
     box-sizing: border-box;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -14,6 +14,7 @@ body {
     justify-content: center;
     align-items: center;
    background-color: dimgrey;
+   font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -21,7 +22,7 @@ body {
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
-    padding: 15px;
+    padding: 20px;
     box-shadow: 0 0 10px 2px;
 }
 
@@ -29,7 +30,7 @@ body {
  display: grid;
  padding: 10px;
  gap: 10px;
- margin: 20px
+ margin: 10px
 
 }
 
