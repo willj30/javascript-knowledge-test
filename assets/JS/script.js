@@ -3,6 +3,14 @@ const nextButton = document.getElementById("next-btn");
 const qstnContainer = document.getElementById("quizbox");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-btns");
+const description = document.getElementById("description");
+const timer = document.getElementById("timer");
+const timeLeft = document.getElementById("timeLeft");
+const timesUp = document.getElementById("timesup");
+const initialInput = document.getElementById("initialInput");
+
+var correctAns = 0;
+var scoreResult;
 
 let shuffledQuestions, currentQuestionIndex
 
@@ -11,12 +19,22 @@ nextButton.addEventListener("click", () => {
     currentQuestionIndex++;
     nextQuestion();
 })
-
+var totalTime = 61;
 function startTest() {
 startButton.classList.add("hide");
+totalTime = 60;
+timeLeft.textContent = totalTime;
+
 shuffledQuestions = testQuestions.sort(() => Math.random() - .5);
 currentQuestionIndex = 0;
 qstnContainer.classList.remove("hide");
+var startTimer = setInterval(function (){
+    totalTime--;
+    timeLeft.textContent = totalTime;
+    if(currentQuestionIndex < testQuestions.length - 1) {
+        gameOver();
+    }
+},1000);
 nextQuestion();
 }
 
@@ -24,6 +42,8 @@ function nextQuestion() {
     resetForm()
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
+
+
 
 function showQuestion(question) {
     questionElement.innerText = question.question;
@@ -47,12 +67,19 @@ function resetForm() {
     }
 }
 
-function selectAnswer(e) {
-    const selectedButton = e.target;
+function selectAnswer(event) {
+    const selectedButton = event.target;
     const correct = selectedButton.dataset.correct;
     setStatus(document.body, correct);
     Array.from(answerButtons.children).forEach(button => {
         setStatus(button, button.dataset.correct);
+        if (selectedButton.dataset == true) {
+            correctAns++;
+        } else {
+            totalTime -= 5;
+            timeLeft.textContent = totalTime;
+
+        }
     })
     nextButton.classList.remove("hide");
 } 
@@ -67,10 +94,7 @@ function setStatus(element, correct) {
    }
 }
 
-function clearSatus(element) {
-    element.classList.remove("correct")
-    element.classList.remove("wrong")
-}
+
 
 const testQuestions = [
 {
