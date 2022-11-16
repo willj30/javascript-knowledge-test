@@ -5,8 +5,8 @@
 
 header{
     display: flex;
-    margin-bottom: 20%;
-    margin-top: 5%;
+    margin-bottom: 5%;
+    margin-top: 15%;
     text-align: center;
     justify-content:space-around;
 
@@ -31,13 +31,15 @@ body {
 
 .navigation {
     display: flex;
-    width: 500px;
+    width: 900px;
     max-width: 100%;
+    justify-content: space-between;
     background-color: white;
     border-radius: 5px;
     padding: 20px;
     box-shadow: 0 0 10px 2px;
     align-items: center;
+    font-size: 25px;
 }
 
 .navigation-right {
@@ -46,6 +48,11 @@ body {
 
 .score {
   margin-right: 50%;
+}
+
+
+#checkAnswer {
+    font-weight: bold;
 }
 
 .container {
@@ -61,9 +68,9 @@ body {
  display: grid;
  padding: 10px;
  gap: 10px;
- margin: 10px
-
+ margin: 10px;
 }
+
 
 .btn {
     background-color: cornflowerblue;
@@ -78,14 +85,6 @@ body {
     cursor: pointer;
 }
 
-.btn.correct {
-    background-color: aquamarine;
-    color: black;
-}
-
-.btn.wrong {
-    background-color: crimson;
-}
 
 .start-btn, .next-btn {
     font-size: 24px;

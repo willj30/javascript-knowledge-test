@@ -13,22 +13,24 @@
     <header >
     <nav class="navigation">
         <div class="score">
-            <a href="#" id="viewHighScore">View High Scores</a>
+            <a href="#" id="viewhighscore">View High Scores</a>
         </div>
+        <p id="answerCheck" style="display: none">Test</p>
         <div id="timer" class="navigation-right">
             <i class="clock"></i> Time: <span id="timeLeft">0</span>
         </div>
-        <div id="timesUp" class="col text-right" style="display: none;">Time's Up!</div>
+       
     </nav>
 </header>
     <section class = "container" class = "">
     <section id = "quizbox" class = "hide">
     <section id="question">Question</section>
-    <section id="answer-btns" class = "q-btns">
-        <button class="btn" >Answer 1</button>
-        <button class="btn" >Answer 2</button>
-        <button class="btn">Answer 3</button>
-        <button class="btn">Answer 4</button>
+    <section  class = "q-btns">
+        <button id="btn0" class="btn" >Answer 1</button>
+        <button id="btn1" class="btn" >Answer 2</button>
+        <button id="btn2" class="btn">Answer 3</button>
+        <button id="btn3" class="btn">Answer 4</button>
+        
     </section>
     </section>
     <section class = "start-btn">
@@ -37,28 +39,27 @@
     <button id = "next-btn" class = "next-btn btn hide">Next</button>
 </section>
 
-<div class="pl-5 ml-2 pt-5 justify-content-center font-weight-bold" id="summary" style="display: none;">
-    <div class="col-2"></div>
-    <div class="col-8 text-left">
-        <h2 class="font-weight-bold pt-2 pb-3 m-2">Your final score is <span id="finalScore"></span> !</h2>
+<div id="summary" style="display: none;">
+       <div >
+        <h2>Game Over!</h2> 
+        <h2>Your final score is <span id="finalscore"></span></h2>
         <form>
-            <p class="pt-2 pb-3 m-2">Enter your initials: <input id="initialInput" class="form-control pt-2 pb-3 mt-2" type="text">
-            <button type="submit" id="submitInitialBtn" class="btn btn-info mt-3">Submit</button>
+            <p>Enter your initials: <input id="initialInput"  type="text" required>
+            <button type="submit" id="submitInitialBtn" class="btn">Submit</button>
             </p>
         </form>
     </div>
-<div class="col-2"></div>
+
 </div>
 
-<div id="highScoreSection" class="pl-5 ml-4 pt-5 justify-content-center font-weight-bold" style="display: none;">
-    <h2 class="font-weight-bold pt-2 pb-3 mb-2">High Scores</h2>                   
+<div id="highScoreSection"  style="display: none;">
+    <h2 >High Scores</h2>                   
     
-    <div id="listOfHighScores" class="list-group list-group-flush pt-2 pb-3 mb-2"></div>
+    <div id="listofhighscores" ></div>
 
-    <!-- append each highscore as new paragraph here -->
     <p>
-        <button type="submit" class="btn btn-info mt-3 mr-3" id="goBackBtn">Go Back</button>
-        <button type="submit" class="btn btn-info mt-3" id="clearHighScoreBtn">Clear High Scores</button>
+        <button type="submit" id="goBackBtn">Go Back</button>
+        <button type="submit"  id="clearHighScoreBtn">Clear High Scores</button>
     </p>
     
 </div>
