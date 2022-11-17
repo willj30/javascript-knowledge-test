@@ -6,7 +6,7 @@
 header{
     display: flex;
     margin-bottom: 5%;
-    margin-top: 15%;
+    margin-top: 10%;
     text-align: center;
     justify-content:space-around;
 
@@ -27,7 +27,15 @@ body {
    font-family: Arial, Helvetica, sans-serif;
 }
 
+.success {
+    font-size: 25px;
+    color: green;
+}
 
+.error {
+    font-size: 25px;
+    color: red;
+}
 
 .navigation {
     display: flex;

@@ -77,6 +77,11 @@ const finalScore = document.getElementById("finalscore")
 const submitInitialBtn = document.getElementById("submitInitialBtn")
 const viewHighScore = document.getElementById("viewhighscore")
 const listOfHighScores = document.getElementById("listofhighscores")
+const restartBtn = document.getElementById("startoverbtn")
+const showHighScores = document.getElementById("highScoreSection")
+const msgDiv = document.getElementById("msg")
+
+let startTimer;
 
 var correctAns = 0;
 var scoreResult;
@@ -89,12 +94,13 @@ startButton.addEventListener("click", startTest)
 var totalTime = 61;
 function startTest() {
 startButton.classList.add("hide");
+showHighScores.style.display = "none";
 totalTime = 60;
 timeLeft.textContent = totalTime;
 initialInput.textContent = '';
 currentQuestionIndex = 0;
 qstnContainer.classList.remove("hide");
-var startTimer = setInterval(function (){
+ startTimer = setInterval(function (){
     totalTime--;
     timeLeft.textContent = totalTime;
     if(totalTime <= 0){
@@ -175,14 +181,68 @@ function gameOver() {
     qstnContainer.classList.add("hide");
     answerCheck.style.display = "none";
     finalScore.textContent = correctAns;
+    clearInterval(startTimer)
 }
 
+function displayMessage(type, message) {
+    msgDiv.textContent = message;
+    msgDiv.setAttribute("class", type);
+  }
 
-
-function storeHighScores(event) {
+submitInitialBtn.addEventListener("click", function(event) {
     event.preventDefault();
-    
 
+var highScoreArray = JSON.parse(localStorage.getItem("scores")) || [];
+    
+var initials = initialInput.value;
+var highScore = finalScore.textContent;
+
+var scoresObject = {
+    initials: initials,
+    highScore: highScore
 
 }
+highScoreArray.push(scoresObject)
+
+
+
+if (initials === '') {
+    displayMessage("error", "Initials cannot be blank")
+} else {
+    displayMessage("success", "You've logged a High Score!");
+
+
+    localStorage.setItem("scores", JSON.stringify(highScoreArray));
+
+    
+    showHighScores.style.display = "block"; 
+    getHighScores()
+}
+});
+
+restartBtn.addEventListener("click", function(){
+    location.reload();
+})
+
+function getHighScores() {
+    listOfHighScores.innerHTML = '';
+    var scoresList = JSON.parse(localStorage.getItem("scores")) || [];
+    scoresList.sort(function(a, b){
+        return b.highScore-a.highScore;
+    })
+    console.log(scoresList)
+    for (i = 0; i < scoresList.length; i++) {
+        var highScoresEl = document.createElement("div")
+        highScoresEl.textContent = scoresList[i].initials + " - " + scoresList[i].highScore
+        listOfHighScores.appendChild(highScoresEl)
+    }
+}
+
+viewHighScore.addEventListener("click", function(){
+    showHighScores.style.display = "block";
+})
+
+
+
+getHighScores()
 
