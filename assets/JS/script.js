@@ -1,9 +1,8 @@
 const testQuestions = [
     {
-        question: "Inside which HTML element do we put the JavaScript?",
+        question: "Which HTML tag is used to define a client-side script?",
         choices: ["a. <js>", "b. <javascript>", "c. <scripting>", "d. <script>"],
         answer: "d. <script>"
-        
       },
       {
         question: "String values must be enclosed within _____ when being assigned to variables.",
@@ -12,8 +11,8 @@ const testQuestions = [
     },
     {
         question: "Arrays in JavaScript can be used to store _____.",
-        choices: ["a. numbers and strings", "b. other arrays", "c. booleans", "d. all of the above"],
-        answer: "b. other arrays"
+        choices: ["a. numbers and strings", "b. multiple values in a single variable", "c. booleans", "d. all of the above"],
+        answer: "b. multiple values in a single variable"
     },
     {
         question: "Commonly used data types DO NOT include:",
@@ -31,14 +30,14 @@ const testQuestions = [
         answer: "c. myFunctions()"
     },
     {
-        question: "To see if two variables are equal in an if / else statement you would use ____.",
-        choices: ["a. =", "b. ==", "c. 'equals'", "d. !="],
-        answer: "b. =="
+        question: "To see if two variables are absolutely equal in an if / else statement you would use ____.",
+        choices: ["a. =", "b. ===", "c. 'equals'", "d. !="],
+        answer: "b. ==="
     },
     {
         question: "The first index of an array is ____.",
-        choices: ["a. 0", "b. 1", "c. 8", "d. any"],
-        answer: "a. 0"
+        choices: ["a. 1", "b. first", "c. 0", "d. any"],
+        answer: "c. 0"
     },
     {
         question: "Who invented JavaScript?",
@@ -62,7 +61,7 @@ const testQuestions = [
     }
     ];
 
-
+    window.confirm("Welcome to the JavaScript Knowledge Test!!! You will have 60 seconds to complete the list of JavaScript questions. For every wrong answer, 5 seconds will be deducted. Are you ready?");
 
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
